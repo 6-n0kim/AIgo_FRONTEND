@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens (ThemeProvider: <html data-theme="dark|light">)
+   - 초기 깜빡임 방지: 기본값을 다크로 설정 */
+:root {
+  color-scheme: dark;
+  --bg: #1E1E2E;
+  --surface: #2B2B3B;
+  --fg: #F6F7FF;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1E1E2E;        /* Background */
+  --surface: #2B2B3B;   /* Surface */
+  --fg: #F6F7FF;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #F3F4F6;
+  --fg: #111111;
+}
+
+@layer base {
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    @apply font-sans;
+  }
+
+  code, pre, kbd, samp {
+    @apply font-mono;
+  }
+}
+
+/* Reusable utilities for your design system */
+@layer utilities {
+  /* Glassmorphism card */
+  .glass {
+    @apply rounded-card bg-surface/40 border border-white/10 backdrop-blur-md shadow-lg;
+  }
+
+  /* Slightly stronger glass for headers/modals */
+  .glass-strong {
+    @apply rounded-card bg-surface/60 border border-white/10 backdrop-blur-lg shadow-lg;
+  }
+
+  /* Neon gradient CTA */
+  .neon-cta {
+    @apply rounded-xl bg-gradient-to-r from-primary to-accent text-white shadow-neon;
+  }
+}

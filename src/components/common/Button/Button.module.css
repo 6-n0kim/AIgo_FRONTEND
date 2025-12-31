@@ -1,0 +1,16 @@
+.base {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.primary {
+  background: #111;
+  color: #fff;
+}
+
+.ghost {
+  background: transparent;
+  color: #111;
+}

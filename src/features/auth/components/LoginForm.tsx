@@ -1,0 +1,58 @@
+import { useState } from "react";
+import { Button } from "@/components/common/Button";
+import { useLogin } from "../hooks";
+
+export function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const login = useLogin();
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        login.mutate(
+          { email, password },
+          { onSuccess: (data) => alert(`token: ${data.token}`) }
+        );
+      }}
+      className="grid gap-3 max-w-sm"
+    >
+      <input
+        className="h-11 rounded-xl bg-white/5 border border-white/10 px-3 outline-none focus:ring-2 focus:ring-secondary/60"
+        placeholder="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        className="h-11 rounded-xl bg-white/5 border border-white/10 px-3 outline-none focus:ring-2 focus:ring-secondary/60"
+        placeholder="password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <div className="flex gap-2">
+        <Button type="submit" variant="neon" disabled={login.isPending} className="flex-1">
+          {login.isPending ? "Loading..." : "Login"}
+        </Button>
+        <Button
+          type="button"
+          variant="ghost"
+          onClick={() => {
+            setEmail("");
+            setPassword("");
+          }}
+        >
+          Reset
+        </Button>
+      </div>
+
+      {login.isError && (
+        <div className="text-danger text-sm">
+          Login failed
+        </div>
+      )}
+    </form>
+  );
+}

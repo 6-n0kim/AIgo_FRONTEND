@@ -1,0 +1,14 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: grid;
+  place-items: center;
+}
+
+.panel {
+  width: min(520px, 92vw);
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+}
