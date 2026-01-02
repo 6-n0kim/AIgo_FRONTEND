@@ -20,15 +20,11 @@ function SunIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export function ThemeProvider({ children }: PropsWithChildren) {
-  // 기본값: 다크
-  const [dark, setDark] = useState(true);
-
   // 초기값: localStorage 우선(없으면 true)
-  useEffect(() => {
+  const [dark, setDark] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === "dark") setDark(true);
-    if (saved === "light") setDark(false);
-  }, []);
+    return saved === "light" ? false : true;
+  });
 
   useEffect(() => {
     document.documentElement.dataset.theme = dark ? "dark" : "light";

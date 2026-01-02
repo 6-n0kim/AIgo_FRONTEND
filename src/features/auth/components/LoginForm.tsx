@@ -11,6 +11,7 @@ export function LoginForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        console.log("Login form submitted with:", { email, password });
         login.mutate(
           { email, password },
           { onSuccess: (data) => alert(`token: ${data.token}`) }
