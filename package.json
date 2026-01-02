@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check ."
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.16",
@@ -23,15 +25,16 @@
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "postcss": "^8.4.49",
+    "prettier": "^3.7.4",
+    "tailwindcss": "^3.4.17",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4",
-    "tailwindcss": "^3.4.17",
-    "postcss": "^8.4.49",
-    "autoprefixer": "^10.4.20"
+    "vite": "^7.2.4"
   }
 }

@@ -1,6 +1,19 @@
-import { useMutation } from "@tanstack/react-query";
-import { loginApi } from "./api";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { loginApi, signupApi, checkEmailApi } from "./api";
 
 export function useLogin() {
   return useMutation({ mutationFn: loginApi });
+}
+
+export function useSignup() {
+  return useMutation({ mutationFn: signupApi });
+}
+
+export function useCheckEmail(email: string, enabled: boolean = false) {
+  return useQuery({
+    queryKey: ["checkEmail", email],
+    queryFn: () => checkEmailApi(email),
+    enabled: enabled && email.length > 0,
+    staleTime: 0,
+  });
 }

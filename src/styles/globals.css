@@ -6,27 +6,28 @@
    - 초기 깜빡임 방지: 기본값을 다크로 설정 */
 :root {
   color-scheme: dark;
-  --bg: #1E1E2E;
-  --surface: #2B2B3B;
-  --fg: #F6F7FF;
+  --bg: #1e1e2e;
+  --surface: #2b2b3b;
+  --fg: #f6f7ff;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #1E1E2E;        /* Background */
-  --surface: #2B2B3B;   /* Surface */
-  --fg: #F6F7FF;
+  --bg: #1e1e2e; /* Background */
+  --surface: #2b2b3b; /* Surface */
+  --fg: #f6f7ff;
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
   --bg: #ffffff;
-  --surface: #F3F4F6;
+  --surface: #f3f4f6;
   --fg: #111111;
 }
 
 @layer base {
-  html, body {
+  html,
+  body {
     height: 100%;
   }
 
@@ -37,7 +38,10 @@
     @apply font-sans;
   }
 
-  code, pre, kbd, samp {
+  code,
+  pre,
+  kbd,
+  samp {
     @apply font-mono;
   }
 }

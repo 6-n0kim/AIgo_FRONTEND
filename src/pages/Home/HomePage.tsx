@@ -19,7 +19,9 @@ export default function HomePage() {
           <div>
             <p className="text-white/70 text-sm">오늘의 학습</p>
             <h1 className="text-2xl font-bold">AIgo Dashboard</h1>
-            <p className="text-white/70 text-sm mt-1">Deep Navy + Neon Gradient UI (Tailwind Theme)</p>
+            <p className="text-white/70 text-sm mt-1">
+              Deep Navy + Neon Gradient UI (Tailwind Theme)
+            </p>
           </div>
 
           {/* 네온 그라데이션 버튼 */}
@@ -27,7 +29,9 @@ export default function HomePage() {
             <Button variant="neon" onClick={() => setOpen(true)}>
               학습 시작
             </Button>
-            <Button variant="ghost" onClick={() => alert("preview")}>결과 확인</Button>
+            <Button variant="ghost" onClick={() => alert("preview")}>
+              결과 확인
+            </Button>
           </div>
         </div>
 
@@ -61,10 +65,12 @@ export default function HomePage() {
       {/* 알고리즘/코드 예시(모노 폰트) */}
       <section className="glass p-6">
         <h2 className="font-semibold">AI 알고리즘/코드 예시</h2>
-        <p className="text-white/70 text-sm mt-1">영문/코드 폰트: JetBrains Mono</p>
+        <p className="text-white/70 text-sm mt-1">
+          영문/코드 폰트: JetBrains Mono
+        </p>
 
         <pre className="mt-4 text-xs leading-5 bg-black/20 rounded-xl p-4 overflow-auto">
-{`// BFS (Queue)
+          {`// BFS (Queue)
 const bfs = (start) => {
   const q = [start];
   const visited = new Set([start]);
@@ -92,11 +98,16 @@ const bfs = (start) => {
       <Modal open={open} onClose={() => setOpen(false)} title="학습 시작">
         <div className="space-y-3">
           <p className="text-white/80 text-sm">
-            네온 버튼(Primary → Accent) + 글래스 카드 + 다크 배경으로 ‘AI의 신비로운 느낌’을 구현합니다.
+            네온 버튼(Primary → Accent) + 글래스 카드 + 다크 배경으로 ‘AI의
+            신비로운 느낌’을 구현합니다.
           </p>
           <div className="flex gap-2">
-            <Button variant="primary" onClick={() => alert("start")}>시작</Button>
-            <Button variant="danger" onClick={() => setOpen(false)}>취소</Button>
+            <Button variant="primary" onClick={() => alert("start")}>
+              시작
+            </Button>
+            <Button variant="danger" onClick={() => setOpen(false)}>
+              취소
+            </Button>
           </div>
         </div>
       </Modal>

@@ -1,6 +1,6 @@
-import { LoginForm } from "@/features/auth/components/LoginForm";
+import { SignupForm } from "@/features/auth/components/SignupForm";
 
-export default function LoginPage() {
+const SignupPage = () => {
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
       <section className="glass p-6">
@@ -9,10 +9,15 @@ export default function LoginPage() {
             AIgo
           </span>
         </h1>
+        <h3 className="text-3xl font-bold text-center mb-2">회원가입</h3>
+        <p className="text-center mb-6">AIgo에 오신 것을 환영합니다</p>
         <div className="mt-6 flex flex-col gap-4 sm:flex-col sm:items-center">
-          <LoginForm />
+          <div className="mb-6"></div>
+          <SignupForm />
         </div>
       </section>
     </div>
   );
-}
+};
+
+export default SignupPage;

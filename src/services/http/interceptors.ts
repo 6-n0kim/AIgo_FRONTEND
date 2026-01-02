@@ -9,6 +9,6 @@ export function applyInterceptors(instance: AxiosInstance) {
 
   instance.interceptors.response.use(
     (res) => res,
-    (err) => Promise.reject(err)
+    (err) => Promise.reject(err),
   );
 }

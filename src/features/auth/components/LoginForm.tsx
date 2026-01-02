@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/common/Button";
 import { useLogin } from "../hooks";
+import { useNavigate } from "react-router-dom";
 
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const login = useLogin();
+  const navigate = useNavigate();
 
   return (
     <form
@@ -14,7 +16,7 @@ export function LoginForm() {
         console.log("Login form submitted with:", { email, password });
         login.mutate(
           { email, password },
-          { onSuccess: (data) => alert(`token: ${data.token}`) }
+          { onSuccess: (data) => alert(`token: ${data.token}`) },
         );
       }}
       className="grid gap-3 max-w-sm"
@@ -33,27 +35,28 @@ export function LoginForm() {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <div className="flex gap-2">
-        <Button type="submit" variant="neon" disabled={login.isPending} className="flex-1">
+      <div className="flex flex-col gap-2">
+        <Button
+          type="submit"
+          variant="neon"
+          disabled={login.isPending}
+          className="flex-1"
+        >
           {login.isPending ? "Loading..." : "Login"}
         </Button>
+
         <Button
           type="button"
-          variant="ghost"
+          variant="primary"
           onClick={() => {
-            setEmail("");
-            setPassword("");
+            navigate("/signup");
           }}
         >
-          Reset
+          회원가입
         </Button>
       </div>
 
-      {login.isError && (
-        <div className="text-danger text-sm">
-          Login failed
-        </div>
-      )}
+      {login.isError && <div className="text-danger text-sm">Login failed</div>}
     </form>
   );
 }

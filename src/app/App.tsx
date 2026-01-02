@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-
+import { Button } from "@/components/common/Button";
 import { ChatFab } from "@/components/common/ChatFab";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import aigoLogo from "@/assets/images/aigo_op.png";
@@ -38,14 +38,17 @@ export default function App() {
       <div className="flex">
         {/* LNB: 짙은 배경 + 아이콘 중심 */}
         <aside className="sticky top-0 h-screen w-16 flex flex-col items-center gap-3 p-3 glass-strong border-r border-white/10">
-            <img src={aigoLogo} alt="AIgo Logo"/>
+          <img src={aigoLogo} alt="AIgo Logo" />
           <nav className="mt-2 flex flex-col gap-2">
             <LnbItem to="/" label="Home" icon="🏠" />
-            
           </nav>
 
           <nav className="mt-auto">
-            <LnbItem to="/components" label="컴포넌트 모양 예시 보기" icon="🎨" />
+            <LnbItem
+              to="/components"
+              label="컴포넌트 모양 예시 보기"
+              icon="🎨"
+            />
             <LnbItem to="/login" label="Login" icon="🔐" />
           </nav>
         </aside>
@@ -54,12 +57,20 @@ export default function App() {
           {/* 상단 바(글래스) */}
           <header className="sticky top-0 z-40 px-6 py-4 flex items-center justify-between glass-strong border-b border-white/10">
             <div>
-              <p className="text-white/60 text-xs">알고 AIgo</p>
-              <p className="font-semibold">학습 대시보드</p>
+              <p className="text-white/60 text-xs">AIgo</p>
+              <p className="font-semibold">AI 학습, 알고(AIgo) 시작하세요!</p>
             </div>
 
-            <div className="hidden sm:flex items-center gap-2">
-              <ThemeProvider />
+            <div className="flex items-center justify-between gap-4">
+              {/* 사용자 정보 및 로그아웃 버튼 */}
+              <div className="flex items-center gap-2">
+                <p className="text-white/60 text-xs">사용자 정보</p>
+                <Button variant="primary">로그아웃</Button>
+              </div>
+
+              <div className="hidden md:flex items-center gap-2">
+                <ThemeProvider />
+              </div>
             </div>
           </header>
 
