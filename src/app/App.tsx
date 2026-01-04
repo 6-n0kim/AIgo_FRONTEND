@@ -95,6 +95,13 @@ export default function App() {
                   </Button>
                 </div>
               )}
+              {!isAuthenticated && (
+                <div className="flex items-center gap-2">
+                  <Button variant="primary" onClick={handleLogout}>
+                    로그인
+                  </Button>
+                </div>
+              )}
 
               <div className="hidden md:flex items-center gap-2">
                 <ThemeProvider />

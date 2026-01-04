@@ -15,7 +15,7 @@ export default function IntroPage() {
       progress: 42,
       goal: 10,
     }),
-    [],
+    []
   );
 
   return (
@@ -37,11 +37,8 @@ export default function IntroPage() {
           </div>
 
           <nav className="flex items-center gap-2">
-            <Button variant="ghost" onClick={() => navigate("/login")}>
-              로그인
-            </Button>
-            <Button variant="neon" onClick={() => navigate("/home")}>
-              무료로 시작
+            <Button variant="neon" onClick={() => navigate("/onboarding")}>
+              테스트하러 가기
             </Button>
           </nav>
         </header>
@@ -72,10 +69,18 @@ export default function IntroPage() {
               </p>
 
               <div className="flex flex-wrap gap-2">
-                <Button variant="neon" onClick={() => navigate("/home")}>
+                <Button
+                  variant="neon"
+                  onClick={() => navigate("/home")}
+                  disabled
+                >
                   무료로 시작
                 </Button>
-                <Button variant="ghost" onClick={() => navigate("/demo")}>
+                <Button
+                  variant="ghost"
+                  onClick={() => navigate("/demo")}
+                  disabled
+                >
                   데모 보기
                 </Button>
               </div>
@@ -136,7 +141,7 @@ export default function IntroPage() {
                 </p>
               </div>
 
-              <Button variant="neon" onClick={() => navigate("/onboarding")}>
+              <Button variant="neon" onClick={() => navigate("/home")}>
                 지금 시작
               </Button>
             </div>
@@ -213,10 +218,14 @@ function DashboardPreview({
       </div>
 
       <div className="mt-6 flex gap-2">
-        <Button variant="neon" onClick={() => alert("preview start")}>
+        <Button variant="neon" onClick={() => alert("preview start")} disabled>
           학습 시작
         </Button>
-        <Button variant="ghost" onClick={() => alert("preview results")}>
+        <Button
+          variant="ghost"
+          onClick={() => alert("preview results")}
+          disabled
+        >
           결과 확인
         </Button>
       </div>

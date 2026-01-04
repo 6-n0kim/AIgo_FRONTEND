@@ -8,6 +8,7 @@ import SignupPage from "@/pages/Signup/SignupPage";
 import ComponentsTest from "@/pages/Test/ComponentsTest";
 import TestPage from "@/pages/Study/ProblemTestPage";
 import StudyPage from "@/pages/Study/StudyPage";
+import OnboardingPage from "@/pages/Study/OnboardingPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
       { path: "/signup", element: <SignupPage /> },
       { path: "/study", element: <StudyPage /> },
       { path: "/test", element: <TestPage /> },
+      { path: "/onboarding", element: <OnboardingPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],
   },
