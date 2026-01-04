@@ -42,3 +42,10 @@ export async function checkEmailApi(email: string) {
     return { available: true };
   }
 }
+
+export async function logoutApi() {
+  console.log("Logout API request");
+  const res = await http.post("/auth/logout");
+  console.log("Logout API response:", res.data);
+  return res.data;
+}

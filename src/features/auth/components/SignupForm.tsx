@@ -31,17 +31,20 @@ export function SignupForm() {
   );
 
   // Handle email input change
-  const handleEmailChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-    setEmailChecked(false);
-  }, []);
+  const handleEmailChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setEmail(e.target.value);
+      setEmailChecked(false);
+    },
+    [],
+  );
 
   // Validation states
   const emailError =
     email && !isValidEmail(email) ? "올바른 이메일 형식이 아닙니다" : null;
   const passwordError =
     password && !isValidPassword(password)
-      ? "비밀번호는 8-128자여야 합니다"
+      ? "비밀번호는 8자이상이어야 합니다"
       : null;
   const confirmPasswordError =
     confirmPassword && password !== confirmPassword
@@ -99,9 +102,9 @@ export function SignupForm() {
     <form onSubmit={handleSubmit} className="grid gap-4 max-w-md">
       {/* Email Input with Check Button */}
       <div className="space-y-2">
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <input
-            className="h-11 flex-1 rounded-xl bg-white/5 border border-white/10 px-3 outline-none focus:ring-2 focus:ring-secondary/60 transition-all"
+            className="h-11 w-full sm:flex-1 rounded-xl bg-white/5 border border-white/10 px-3 outline-none focus:ring-2 focus:ring-secondary/60 transition-all"
             placeholder="이메일"
             type="email"
             value={email}
@@ -112,7 +115,7 @@ export function SignupForm() {
             variant="accent"
             onClick={handleCheckEmail}
             disabled={!email || !isValidEmail(email) || emailCheck.isFetching}
-            className="px-4"
+            className="h-11 px-4 sm:px-6 sm:min-w-[100px] whitespace-nowrap"
           >
             {emailCheck.isFetching ? "확인중..." : "중복확인"}
           </Button>
@@ -140,7 +143,7 @@ export function SignupForm() {
       <div className="space-y-2">
         <input
           className="h-11 w-full rounded-xl bg-white/5 border border-white/10 px-3 outline-none focus:ring-2 focus:ring-secondary/60 transition-all"
-          placeholder="비밀번호 (8-128자)"
+          placeholder="비밀번호 (8자 이상)"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

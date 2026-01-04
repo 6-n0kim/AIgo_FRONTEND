@@ -6,6 +6,8 @@ import NotFoundPage from "@/pages/NotFound";
 import LoginPage from "@/pages/Login";
 import SignupPage from "@/pages/Signup/SignupPage";
 import ComponentsTest from "@/pages/Test/ComponentsTest";
+import TestPage from "@/pages/Study/ProblemTestPage";
+import StudyPage from "@/pages/Study/StudyPage";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +18,8 @@ export const router = createBrowserRouter([
       { path: "/components", element: <ComponentsTest /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/signup", element: <SignupPage /> },
+      { path: "/study", element: <StudyPage /> },
+      { path: "/test", element: <TestPage /> },
       { path: "*", element: <NotFoundPage /> },
     ],
   },
