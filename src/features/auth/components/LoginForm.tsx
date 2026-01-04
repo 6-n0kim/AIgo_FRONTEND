@@ -21,13 +21,10 @@ export function LoginForm() {
           { email, password },
           {
             onSuccess: (data) => {
-              console.log("Login successful:", data);
-              // Set user in auth context
               setAuthUser(data.user);
-              // Redirect to home page
               navigate("/");
             },
-          },
+          }
         );
       }}
       className="grid gap-3 max-w-sm"

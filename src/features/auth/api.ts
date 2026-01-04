@@ -8,7 +8,6 @@ import type {
 } from "./types";
 
 export async function loginApi(body: LoginRequest) {
-  console.log("Login API request:", body);
   const formData = new FormData();
   formData.append("username", body.email);
   formData.append("password", body.password);
@@ -17,8 +16,6 @@ export async function loginApi(body: LoginRequest) {
       "Content-Type": "multipart/form-data",
     },
   });
-
-  console.log("Login API response:", res.data);
   return res.data;
 }
 
